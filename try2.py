@@ -1,17 +1,15 @@
 from icmplib import ping
 from threading import Thread
 from queue import Queue
-import csv
-from time import time
+import csv
 
-def main():
-    start = time()
+def main():
     a,b,c,d=127,0,0,0
     que = Queue()
     count= 0
     done = False
 
-    def  asyncPing(a1,b1,c1,d1,count1,q ):
+    def asyncPing(a1,b1,c1,d1,count1,q ):
         if ping(f"{a1}.{b1}.{c1}.{d1}", interval=0.001, id = count1).is_alive: q.put(f"{a1}.{b1}.{c1}.{d1}")
 
     def readQueue(q):
@@ -30,5 +28,6 @@ def main():
         if c == 256: b+=1;c,d=0,0
         if b == 256: a+=1;b,c,d=0,0,0
     done  = True
-    stop = time()
-    print(stop-start)
+
+if __name__ == "__main__":
+    main()
