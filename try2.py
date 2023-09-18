@@ -4,7 +4,7 @@ from queue import Queue
 import csv
 
 def main():
-    a,b,c,d=127,0,0,0
+    a,b,c,d=0,0,0,0
     que = Queue()
     count= 0
     done = False
