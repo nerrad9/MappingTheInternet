@@ -21,7 +21,7 @@ def main():
                 except: pass
 
     Thread(target = readQueue,  args = (que,)).start()
-    while c!=1:
+    while a!=256:
         Thread(target = asyncPing, args = (a,b,c,d,count,que)).start()
         count,d=count+1,d+1
         if d == 256: c+=1;d=0
